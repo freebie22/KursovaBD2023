@@ -64,6 +64,12 @@
     <Compile Include="CarNames.Designer.cs">
       <DependentUpon>CarNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarTypes.Designer.cs">
+      <DependentUpon>CarTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="checkUser.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="Form1.cs">
@@ -83,6 +89,12 @@
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers.Designer.cs">
+      <DependentUpon>Managers.cs</DependentUpon>
     </Compile>
     <Compile Include="MyFirstCarDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +130,9 @@
     <EmbeddedResource Include="CarNames.resx">
       <DependentUpon>CarNames.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarTypes.resx">
+      <DependentUpon>CarTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers.resx">
+      <DependentUpon>Managers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewDetForm.resx">
       <DependentUpon>NewDetForm.cs</DependentUpon>

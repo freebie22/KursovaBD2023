@@ -89,6 +89,7 @@
             this.типиКузовівToolStripMenuItem.Name = "типиКузовівToolStripMenuItem";
             this.типиКузовівToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.типиКузовівToolStripMenuItem.Text = "Типи кузовів";
+            this.типиКузовівToolStripMenuItem.Click += new System.EventHandler(this.типиКузовівToolStripMenuItem_Click);
             // 
             // наявніАвтоToolStripMenuItem
             // 
@@ -125,6 +126,7 @@
             this.менеджериToolStripMenuItem.Name = "менеджериToolStripMenuItem";
             this.менеджериToolStripMenuItem.Size = new System.Drawing.Size(205, 30);
             this.менеджериToolStripMenuItem.Text = "Менеджери";
+            this.менеджериToolStripMenuItem.Click += new System.EventHandler(this.менеджериToolStripMenuItem_Click);
             // 
             // клієнтиToolStripMenuItem
             // 

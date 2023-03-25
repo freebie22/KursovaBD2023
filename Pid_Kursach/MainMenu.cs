@@ -20,6 +20,7 @@ namespace Pid_Kursach
         {
             InitializeComponent();
             _user = user;
+            
         }
 
 
@@ -40,16 +41,28 @@ namespace Pid_Kursach
         private void MainMenu_Load(object sender, EventArgs e)
         {
             label1.Text = "Активний користувач: " + $"{_user.Login}";
-            IsAdmin();
             продажToolStripMenuItem.Enabled = false;
             менеджериToolStripMenuItem.Enabled = false;
             користувачіToolStripMenuItem.Enabled = false;
+            IsAdmin();
         }
 
         private void моделіАвтоToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CarModels carModels = new CarModels();
             carModels.Show();
+        }
+
+        private void типиКузовівToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CarTypes carTypes = new CarTypes();
+            carTypes.Show();
+        }
+
+        private void менеджериToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Managers managers = new Managers();
+            managers.Show();
         }
     }
     }
