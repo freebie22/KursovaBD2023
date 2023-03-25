@@ -34,15 +34,16 @@
             this.ButtonLogin = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
             this.login = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.KyshButton = new System.Windows.Forms.Label();
             this.closeButtoon = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +60,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(184)))), ((int)(((byte)(182)))));
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.Perehid);
             this.panel1.Controls.Add(this.ButtonLogin);
             this.panel1.Controls.Add(this.password);
@@ -93,7 +95,7 @@
             this.ButtonLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(172)))), ((int)(((byte)(168)))));
             this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLogin.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ButtonLogin.Location = new System.Drawing.Point(189, 338);
+            this.ButtonLogin.Location = new System.Drawing.Point(189, 351);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(185, 51);
             this.ButtonLogin.TabIndex = 5;
@@ -121,6 +123,26 @@
             this.login.TabIndex = 3;
             this.login.Enter += new System.EventHandler(this.login_Enter);
             this.login.Leave += new System.EventHandler(this.login_Leave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Pid_Kursach.Properties.Resources._lock;
+            this.pictureBox2.Location = new System.Drawing.Point(86, 203);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Pid_Kursach.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(86, 133);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -158,25 +180,13 @@
             this.closeButtoon.Text = "X";
             this.closeButtoon.Click += new System.EventHandler(this.closeButtoon_Click);
             // 
-            // pictureBox2
+            // textBox1
             // 
-            this.pictureBox2.Image = global::Pid_Kursach.Properties.Resources._lock;
-            this.pictureBox2.Location = new System.Drawing.Point(86, 203);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Pid_Kursach.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(86, 133);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(174, 284);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(214, 48);
+            this.textBox1.TabIndex = 10;
             // 
             // Register
             // 
@@ -189,10 +199,10 @@
             this.Text = "Register";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +220,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label KyshButton;
         private System.Windows.Forms.Label closeButtoon;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

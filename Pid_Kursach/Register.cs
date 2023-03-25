@@ -20,6 +20,7 @@ namespace Pid_Kursach
             this.password.Size = new Size(this.password.Size.Width, 51);
             login.Text = "Логін...";
             password.Text = "Пароль...";
+            textBox1.Text = "Підтвердження паролю...";
 
             login.ForeColor = Color.Gray;
             password.ForeColor = Color.Gray;
@@ -27,7 +28,7 @@ namespace Pid_Kursach
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            if (login.Text == "Логін..." || login.Text == "" || password.Text == "Пароль..." || password.Text == "")
+            if (login.Text == "Логін..." || login.Text == "" || password.Text == "Пароль..." || password.Text == "" || textBox1.Text == "Підтвердження паролю..." || textBox1.Text == "")
             {
                 MessageBox.Show("Заповніть усі поля 0_о");
                 return;
@@ -36,11 +37,11 @@ namespace Pid_Kursach
             if (isUserExists())
                 return;
             DataBase db = new DataBase();
-            SqlCommand command = new SqlCommand("INSERT INTO users (login, pass, Kod) VALUES (@login, @pass, 0)", db.GetConnection());
+            SqlCommand command = new SqlCommand("INSERT INTO users (login, pass, confirm_pass, Kod) VALUES (@login, @pass, @confirm_pass, 0)", db.GetConnection());
 
             command.Parameters.Add("@login", SqlDbType.VarChar).Value = login.Text;
             command.Parameters.Add("@pass", SqlDbType.VarChar).Value = password.Text;
-
+            command.Parameters.Add("@confirm_pass", SqlDbType.VarChar).Value = textBox1.Text;
 
             db.OpenConnection();
 

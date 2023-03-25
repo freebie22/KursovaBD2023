@@ -14,7 +14,6 @@ namespace Pid_Kursach
     {
         private readonly checkUser _user;
 
-        DataBase db = new DataBase();
 
         public MainMenu(checkUser user)
         {
@@ -22,7 +21,6 @@ namespace Pid_Kursach
             _user = user;
             
         }
-
 
 
         private void маркиАвтоToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,6 +67,12 @@ namespace Pid_Kursach
         {
             Clients client = new Clients();
             client.Show();
+        }
+
+        private void користувачіToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Users user = new Users();
+            user.Show();
         }
     }
     }

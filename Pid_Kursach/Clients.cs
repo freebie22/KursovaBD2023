@@ -122,6 +122,13 @@ namespace Pid_Kursach
 
                 SqlCommand dd = new SqlCommand("DELETE FROM clients WHERE CKod= " + textBox1.Text, dB.GetConnection());
                 MessageBox.Show("Видалено " + dd.ExecuteNonQuery() + " запис.");
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                textBox6.Text = "";
+                checkBox1.Checked = false;
             }
             dB.CloseConnection();
         }

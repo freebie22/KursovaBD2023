@@ -53,7 +53,7 @@ namespace Pid_Kursach
 
             if (table.Rows.Count > 0)
             {
-                var user = new checkUser(table.Rows[0].ItemArray[1].ToString(), Convert.ToBoolean(table.Rows[0].ItemArray[3]));
+                var user = new checkUser(table.Rows[0].ItemArray[1].ToString(), Convert.ToBoolean(table.Rows[0].ItemArray[4]));
 
                 this.Hide();
                 MainMenu mainMenu = new MainMenu(user);

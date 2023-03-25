@@ -140,6 +140,7 @@
             this.користувачіToolStripMenuItem.Name = "користувачіToolStripMenuItem";
             this.користувачіToolStripMenuItem.Size = new System.Drawing.Size(205, 30);
             this.користувачіToolStripMenuItem.Text = "Користувачі";
+            this.користувачіToolStripMenuItem.Click += new System.EventHandler(this.користувачіToolStripMenuItem_Click);
             // 
             // довідкаToolStripMenuItem
             // 
