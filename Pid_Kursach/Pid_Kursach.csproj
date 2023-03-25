@@ -71,6 +71,12 @@
       <DependentUpon>CarTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="checkUser.cs" />
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarTypes.resx">
       <DependentUpon>CarTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -64,6 +64,12 @@ namespace Pid_Kursach
             Managers managers = new Managers();
             managers.Show();
         }
+
+        private void клієнтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clients client = new Clients();
+            client.Show();
+        }
     }
     }
 
