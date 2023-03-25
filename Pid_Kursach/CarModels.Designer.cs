@@ -69,9 +69,9 @@
             this.label1.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(325, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 26);
+            this.label1.Size = new System.Drawing.Size(198, 26);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Довідник марок";
+            this.label1.Text = "Довідник моделей";
             // 
             // label2
             // 
@@ -79,9 +79,9 @@
             this.label2.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(310, 245);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 26);
+            this.label2.Size = new System.Drawing.Size(229, 26);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Керування марками";
+            this.label2.Text = "Керування моделями";
             // 
             // label3
             // 

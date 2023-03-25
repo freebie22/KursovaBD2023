@@ -26,8 +26,8 @@ namespace Pid_Kursach
 
         private void маркиАвтоToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* CarNames carNames = new CarNames();
-            carNames.Show();*/
+            CarNames carNames = new CarNames();
+            carNames.Show();
         }
 
         private void IsAdmin()
