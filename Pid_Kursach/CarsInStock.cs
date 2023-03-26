@@ -28,6 +28,7 @@ namespace Pid_Kursach
             comboBox7.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox8.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox10.DropDownStyle = ComboBoxStyle.DropDownList;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("montserrat", 12);
             dataGridView1.DefaultCellStyle.Font = new Font("montserrat", 12);
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -56,7 +57,8 @@ namespace Pid_Kursach
                 " cars_in_stock.Car_Drive AS 'Привід'," +
                 " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
                 " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
-                " cars_in_stock.Car_Is_Avaliable AS 'Наявність' " +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність'," +
+                " cars_in_stock.Car_Is_Sold AS 'Чи продана?'" +
                 "FROM cars_in_stock " +
                 "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
                 "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
@@ -134,6 +136,7 @@ namespace Pid_Kursach
             textBox12.Text = "";
             textBox13.Text = "";
             textBox14.Text = "";
+            textBox15.Text = "";
             comboBox1.SelectedItem = null;
             comboBox2.SelectedItem = null;
             comboBox3.SelectedItem = null;
@@ -143,6 +146,7 @@ namespace Pid_Kursach
             comboBox7.SelectedItem = null;
             comboBox8.SelectedItem = null;
             comboBox9.SelectedItem = null;
+            comboBox10.SelectedItem = null;
             dateTimePicker1.Value = DateTime.Now;
 
         }
@@ -233,7 +237,17 @@ namespace Pid_Kursach
 
                 else
                 {
-                    comboBox1.SelectedItem = "Продане";
+                    comboBox9.SelectedItem = "Продане";
+                }
+
+                if ((bool)row.Cells[14].Value)
+                {
+                    comboBox10.SelectedItem = "Так";
+                }
+
+                else
+                {
+                    comboBox10.SelectedItem = "Ні";
                 }
             }
         }
@@ -254,8 +268,9 @@ namespace Pid_Kursach
                 $" Car_Drive," +
                 $" Car_Mileage," +
                 $" Car_Date_Prihod," +
-                $" Car_Is_Avaliable) " +
-                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox2.Text}', '{textBox8.Text}', '{textBox3.Text}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}')", dB.GetConnection());
+                $" Car_Is_Avaliable," +
+                $" Car_Is_Sold) " +
+                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox2.Text}', '{textBox8.Text}', '{textBox3.Text}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}', '{bool.Parse(textBox15.Text)}')", dB.GetConnection());
 
             if (command.ExecuteNonQuery() == 1)
             {
@@ -339,7 +354,8 @@ namespace Pid_Kursach
                 " cars_in_stock.Car_Drive AS 'Привід'," +
                 " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
                 " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
-                " cars_in_stock.Car_Is_Avaliable AS 'Наявність' " +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність', " +
+                " cars_in_stock.Car_Is_Sold AS 'Чи продана?'" +
                 "FROM cars_in_stock " +
                 "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
                 "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
@@ -366,7 +382,7 @@ namespace Pid_Kursach
         {
             dB.OpenConnection();
             DateTime date = DateTime.ParseExact(textBox14.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            SqlCommand command = new SqlCommand($"UPDATE cars_in_stock SET Car_Name = '{int.Parse(textBox5.Text)}', Car_Model = '{int.Parse(textBox6.Text)}', Car_Type = '{int.Parse(textBox7.Text)}', Car_Price = '{textBox2.Text}', Car_Year = '{textBox8.Text}', Car_Engine = '{textBox3.Text}', Car_GearBox = '{textBox9.Text}', Car_Fuel = '{textBox10.Text}', Car_Condition = '{textBox11.Text}', Car_Drive = '{textBox12.Text}', Car_Mileage = '{textBox4.Text}', Car_Date_Prihod = '{date:yyyy-MM-dd}', Car_Is_Avaliable = '{bool.Parse(textBox13.Text)}' WHERE Car_Id = {textBox1.Text}", dB.GetConnection());
+            SqlCommand command = new SqlCommand($"UPDATE cars_in_stock SET Car_Name = '{int.Parse(textBox5.Text)}', Car_Model = '{int.Parse(textBox6.Text)}', Car_Type = '{int.Parse(textBox7.Text)}', Car_Price = '{textBox2.Text}', Car_Year = '{textBox8.Text}', Car_Engine = '{textBox3.Text}', Car_GearBox = '{textBox9.Text}', Car_Fuel = '{textBox10.Text}', Car_Condition = '{textBox11.Text}', Car_Drive = '{textBox12.Text}', Car_Mileage = '{textBox4.Text}', Car_Date_Prihod = '{date:yyyy-MM-dd}', Car_Is_Avaliable = '{bool.Parse(textBox13.Text)}', Car_Is_Sold = '{bool.Parse(textBox15.Text)}',  WHERE Car_Id = {textBox1.Text}", dB.GetConnection());
 
             if (command.ExecuteNonQuery() == 1)
             {
@@ -378,6 +394,18 @@ namespace Pid_Kursach
             }
 
             dB.CloseConnection();
+        }
+
+        private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox10.SelectedItem == "Так")
+            {
+                textBox15.Text = "true";
+            }
+            else
+            {
+                textBox15.Text = "false";
+            }
         }
     }
 }

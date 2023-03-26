@@ -80,6 +80,9 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myFirstCarDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carnamesBindingSource)).BeginInit();
@@ -141,7 +144,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(1060, 522);
+            this.button3.Location = new System.Drawing.Point(1173, 556);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 56);
             this.button3.TabIndex = 114;
@@ -152,7 +155,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(1060, 457);
+            this.button2.Location = new System.Drawing.Point(1173, 491);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 56);
             this.button2.TabIndex = 113;
@@ -163,7 +166,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(1060, 395);
+            this.button1.Location = new System.Drawing.Point(1173, 429);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 56);
             this.button1.TabIndex = 112;
@@ -509,7 +512,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(919, 280);
+            this.label15.Location = new System.Drawing.Point(966, 280);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(166, 22);
             this.label15.TabIndex = 140;
@@ -518,7 +521,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(1091, 279);
+            this.dateTimePicker1.Location = new System.Drawing.Point(1138, 278);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(263, 27);
             this.dateTimePicker1.TabIndex = 141;
@@ -531,7 +534,7 @@
             this.comboBox9.Items.AddRange(new object[] {
             "В наявності",
             "Продане"});
-            this.comboBox9.Location = new System.Drawing.Point(1030, 324);
+            this.comboBox9.Location = new System.Drawing.Point(1077, 324);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(180, 30);
             this.comboBox9.TabIndex = 142;
@@ -541,7 +544,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(919, 324);
+            this.label16.Location = new System.Drawing.Point(966, 324);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(105, 22);
             this.label16.TabIndex = 143;
@@ -613,25 +616,57 @@
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(1216, 328);
+            this.textBox13.Location = new System.Drawing.Point(1263, 328);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 152;
-            this.textBox13.Visible = false;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(1369, 283);
+            this.textBox14.Location = new System.Drawing.Point(1437, 280);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(100, 20);
             this.textBox14.TabIndex = 153;
             this.textBox14.Visible = false;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(1280, 362);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(100, 20);
+            this.textBox15.TabIndex = 156;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(966, 358);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(109, 22);
+            this.label17.TabIndex = 155;
+            this.label17.Text = "Чи продане";
+            // 
+            // comboBox10
+            // 
+            this.comboBox10.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
+            "Так",
+            "Ні"});
+            this.comboBox10.Location = new System.Drawing.Point(1081, 358);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(180, 30);
+            this.comboBox10.TabIndex = 154;
+            this.comboBox10.SelectedIndexChanged += new System.EventHandler(this.comboBox10_SelectedIndexChanged);
             // 
             // CarsInStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1593, 627);
+            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.comboBox10);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.textBox12);
@@ -742,5 +777,8 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBox10;
     }
 }

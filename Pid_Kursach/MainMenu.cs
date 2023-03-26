@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pid_Kursach.Images;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,6 +80,12 @@ namespace Pid_Kursach
         {
             CarsInStock cars = new CarsInStock();
             cars.Show();
+        }
+
+        private void журналПродажуАвтоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales sales = new Sales();
+            sales.Show();
         }
     }
     }

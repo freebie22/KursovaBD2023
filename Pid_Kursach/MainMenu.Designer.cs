@@ -111,6 +111,7 @@
             this.журналПродажуАвтоToolStripMenuItem.Name = "журналПродажуАвтоToolStripMenuItem";
             this.журналПродажуАвтоToolStripMenuItem.Size = new System.Drawing.Size(304, 30);
             this.журналПродажуАвтоToolStripMenuItem.Text = "Журнал продажу авто";
+            this.журналПродажуАвтоToolStripMenuItem.Click += new System.EventHandler(this.журналПродажуАвтоToolStripMenuItem_Click);
             // 
             // іншіДовідникиToolStripMenuItem
             // 
