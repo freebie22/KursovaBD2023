@@ -70,6 +70,16 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myFirstCarDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carnamesBindingSource)).BeginInit();
@@ -115,6 +125,7 @@
             this.button5.TabIndex = 117;
             this.button5.Text = "Оновити таблицю";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -156,6 +167,7 @@
             this.button1.TabIndex = 112;
             this.button1.Text = "Створити";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -234,6 +246,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(162, 30);
             this.comboBox2.TabIndex = 123;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // myFirstCarDataSet
             // 
@@ -260,6 +273,7 @@
             this.comboBox3.Size = new System.Drawing.Size(162, 30);
             this.comboBox3.TabIndex = 124;
             this.comboBox3.ValueMember = "TKodType";
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // cartypesBindingSource
             // 
@@ -341,6 +355,7 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(162, 30);
             this.comboBox4.TabIndex = 127;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -384,6 +399,7 @@
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(162, 30);
             this.comboBox5.TabIndex = 131;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -410,6 +426,7 @@
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(162, 30);
             this.comboBox6.TabIndex = 133;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -432,6 +449,7 @@
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(162, 30);
             this.comboBox7.TabIndex = 135;
+            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -455,6 +473,7 @@
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(162, 30);
             this.comboBox8.TabIndex = 137;
+            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -501,6 +520,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(263, 27);
             this.dateTimePicker1.TabIndex = 141;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // comboBox9
             // 
@@ -513,6 +533,7 @@
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(180, 30);
             this.comboBox9.TabIndex = 142;
+            this.comboBox9.SelectedIndexChanged += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -524,11 +545,91 @@
             this.label16.TabIndex = 143;
             this.label16.Text = "Статус авто";
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(126, 324);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 144;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(126, 362);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 145;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(126, 400);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 146;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(126, 483);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 147;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(813, 331);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 148;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(836, 370);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 149;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(780, 407);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 150;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(848, 449);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 20);
+            this.textBox12.TabIndex = 151;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(1216, 328);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 20);
+            this.textBox13.TabIndex = 152;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(1369, 283);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(100, 20);
+            this.textBox14.TabIndex = 153;
+            // 
             // CarsInStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1593, 627);
+            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.comboBox9);
             this.Controls.Add(this.dateTimePicker1);
@@ -619,5 +720,15 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox9;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox14;
     }
 }

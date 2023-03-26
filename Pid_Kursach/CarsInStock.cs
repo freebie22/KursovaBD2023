@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,9 @@ namespace Pid_Kursach
                 int selectedBrandId = (int)((DataRowView)comboBox1.SelectedItem)["NKod"];
                 FillModelComboBox(selectedBrandId);
             }
+
+            textBox5.Text = Convert.ToString(comboBox1.SelectedValue);
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -116,6 +120,30 @@ namespace Pid_Kursach
 
         private void button4_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            textBox14.Text = "";
+            comboBox1.SelectedItem = null;
+            comboBox2.SelectedItem = null;
+            comboBox3.SelectedItem = null;
+            comboBox4.SelectedItem = null;
+            comboBox5.SelectedItem = null;
+            comboBox6.SelectedItem = null;
+            comboBox7.SelectedItem = null;
+            comboBox8.SelectedItem = null;
+            comboBox9.SelectedItem = null;
+            dateTimePicker1.Value = DateTime.Now;
 
         }
 
@@ -207,8 +235,119 @@ namespace Pid_Kursach
                 {
                     comboBox1.SelectedItem = "Продане";
                 }
-
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dB.OpenConnection();
+            DateTime date = DateTime.ParseExact(textBox14.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            SqlCommand command= new SqlCommand($"Insert into cars_in_stock (Car_Name," +
+                $" Car_Model," +
+                $" Car_Type," +
+                $" Car_Price," +
+                $" Car_Year," +
+                $" Car_Engine," +
+                $" Car_GearBox," +
+                $" Car_Fuel," +
+                $" Car_Condition," +
+                $" Car_Drive," +
+                $" Car_Mileage," +
+                $" Car_Date_Prihod," +
+                $" Car_Is_Avaliable) " +
+                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox2.Text}', '{textBox8.Text}', '{textBox3.Text}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}')", dB.GetConnection());
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Запис успішно створено!", "Успіх!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Запис не створено!", "Увага!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            dB.CloseConnection();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox6.Text = Convert.ToString(comboBox2.SelectedValue);
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = Convert.ToString(comboBox3.SelectedValue);
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox8.Text = Convert.ToString(comboBox4.SelectedItem);
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox9.Text = Convert.ToString(comboBox5.SelectedItem);
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox10.Text = Convert.ToString(comboBox6.SelectedItem);
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = Convert.ToString(comboBox7.SelectedItem);
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox12.Text = Convert.ToString(comboBox8.SelectedItem);
+        }
+
+        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox9.SelectedItem == "В наявності")
+            {
+                textBox13.Text = "true";
+            }
+            else
+            {
+                textBox13.Text = "false";
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime date = this.dateTimePicker1.Value;
+            this.textBox14.Text = date.ToString("yyyy-MM-dd");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dB.OpenConnection();
+            SqlDataAdapter data = new SqlDataAdapter(
+                "SELECT cars_in_stock.Car_Id AS 'ID'," +
+                " car_names.NName AS 'Марка'," +
+                " car_models.MoName AS 'Модель'," +
+                " car_types.TNazvaType AS 'Тип кузову'," +
+                " cars_in_stock.Car_Price AS 'Ціна, $'," +
+                " cars_in_stock.Car_Year AS 'Рік випуску'," +
+                " cars_in_stock.Car_Engine AS 'Об єм двигуна, л'," +
+                " cars_in_stock.Car_GearBox AS 'Коробка передач'," +
+                " cars_in_stock.Car_Fuel AS 'Тип пального'," +
+                " cars_in_stock.Car_Condition AS 'Стан автомобіля'," +
+                " cars_in_stock.Car_Drive AS 'Привід'," +
+                " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
+                " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність' " +
+                "FROM cars_in_stock " +
+                "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
+                "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
+                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType;", dB.GetConnection());
+            DataSet ds = new DataSet();
+            data.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            dB.CloseConnection();
         }
     }
 }
