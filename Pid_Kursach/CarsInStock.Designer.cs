@@ -147,6 +147,7 @@
             this.button3.TabIndex = 114;
             this.button3.Text = "Видалити";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -157,6 +158,7 @@
             this.button2.TabIndex = 113;
             this.button2.Text = "Редагувати";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -551,6 +553,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 144;
+            this.textBox5.Visible = false;
             // 
             // textBox6
             // 
@@ -558,6 +561,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 145;
+            this.textBox6.Visible = false;
             // 
             // textBox7
             // 
@@ -565,6 +569,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 146;
+            this.textBox7.Visible = false;
             // 
             // textBox8
             // 
@@ -572,6 +577,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 147;
+            this.textBox8.Visible = false;
             // 
             // textBox9
             // 
@@ -579,6 +585,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 148;
+            this.textBox9.Visible = false;
             // 
             // textBox10
             // 
@@ -586,6 +593,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 20);
             this.textBox10.TabIndex = 149;
+            this.textBox10.Visible = false;
             // 
             // textBox11
             // 
@@ -593,6 +601,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 150;
+            this.textBox11.Visible = false;
             // 
             // textBox12
             // 
@@ -600,6 +609,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(100, 20);
             this.textBox12.TabIndex = 151;
+            this.textBox12.Visible = false;
             // 
             // textBox13
             // 
@@ -607,6 +617,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 152;
+            this.textBox13.Visible = false;
             // 
             // textBox14
             // 
@@ -614,6 +625,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(100, 20);
             this.textBox14.TabIndex = 153;
+            this.textBox14.Visible = false;
             // 
             // CarsInStock
             // 

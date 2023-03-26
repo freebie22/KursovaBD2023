@@ -349,5 +349,35 @@ namespace Pid_Kursach
             dataGridView1.DataSource = ds.Tables[0];
             dB.CloseConnection();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dB.OpenConnection();
+            if (MessageBox.Show($"Видалити дане авто зі списку?", "Видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                SqlCommand dd = new SqlCommand("DELETE FROM cars_in_stock WHERE Car_Id = " + textBox1.Text, dB.GetConnection());
+                MessageBox.Show("Видалено " + dd.ExecuteNonQuery() + " запис.");
+            }
+            dB.CloseConnection();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dB.OpenConnection();
+            DateTime date = DateTime.ParseExact(textBox14.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            SqlCommand command = new SqlCommand($"UPDATE cars_in_stock SET Car_Name = '{int.Parse(textBox5.Text)}', Car_Model = '{int.Parse(textBox6.Text)}', Car_Type = '{int.Parse(textBox7.Text)}', Car_Price = '{textBox2.Text}', Car_Year = '{textBox8.Text}', Car_Engine = '{textBox3.Text}', Car_GearBox = '{textBox9.Text}', Car_Fuel = '{textBox10.Text}', Car_Condition = '{textBox11.Text}', Car_Drive = '{textBox12.Text}', Car_Mileage = '{textBox4.Text}', Car_Date_Prihod = '{date:yyyy-MM-dd}', Car_Is_Avaliable = '{bool.Parse(textBox13.Text)}' WHERE Car_Id = {textBox1.Text}", dB.GetConnection());
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Запис успішно оновлено!", "Успіх!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Запис не оновлено!", "Увага!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            dB.CloseConnection();
+        }
     }
 }
