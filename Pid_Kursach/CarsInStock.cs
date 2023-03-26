@@ -407,5 +407,65 @@ namespace Pid_Kursach
                 textBox15.Text = "false";
             }
         }
+
+        private void NameSearch(DataGridView dgw)
+        {
+
+                 dB.OpenConnection();
+            
+                string query = "SELECT cars_in_stock.Car_Id AS 'ID'," +
+                " car_names.NName AS 'Марка'," +
+                " car_models.MoName AS 'Модель'," +
+                " car_types.TNazvaType AS 'Тип кузову'," +
+                " cars_in_stock.Car_Price AS 'Ціна, $'," +
+                " cars_in_stock.Car_Year AS 'Рік випуску'," +
+                " cars_in_stock.Car_Engine AS 'Об єм двигуна, л'," +
+                " cars_in_stock.Car_GearBox AS 'Коробка передач'," +
+                " cars_in_stock.Car_Fuel AS 'Тип пального'," +
+                " cars_in_stock.Car_Condition AS 'Стан автомобіля'," +
+                " cars_in_stock.Car_Drive AS 'Привід'," +
+                " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
+                " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність', " +
+                " cars_in_stock.Car_Is_Sold AS 'Чи продана?'" +
+                "FROM cars_in_stock " +
+                "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
+                "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
+                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType WHERE car_names.NName LIKE '%' + @searchTerm + '%' ;";
+
+                // Підготовка параметрів для запиту
+                SqlCommand command = new SqlCommand(query, dB.GetConnection());
+                command.Parameters.AddWithValue("@searchTerm", textBox16.Text);
+
+            dgw.Rows.Clear();
+
+            // Виконання запиту та обробка результатів
+            try
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string carName = reader["car_names.NName"].ToString();
+                    string carModel = reader["car_models.MoName"].ToString();
+                    int carYear = (int)reader["cars_in_stock.Car_Year"];
+
+                    // Додавання нового рядка до DataGridView
+                    dgw.Rows.Add(carName, carModel, carYear);
+                }
+                }
+            catch(Exception ex)
+            {
+
+            }
+                
+            dB.CloseConnection();
+
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            NameSearch(dataGridView1);
+        }
     }
 }
