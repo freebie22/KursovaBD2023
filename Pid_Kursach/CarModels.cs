@@ -27,10 +27,12 @@ namespace Pid_Kursach
 
         private void CarModels_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'myFirstCarDataSet.car_types' table. You can move, or remove it, as needed.
+            this.car_typesTableAdapter.Fill(this.myFirstCarDataSet.car_types);
             // TODO: This line of code loads data into the 'myFirstCarDataSet.car_names' table. You can move, or remove it, as needed.
             this.car_namesTableAdapter.Fill(this.myFirstCarDataSet.car_names);
             dB.OpenConnection();
-            SqlDataAdapter data_ = new SqlDataAdapter("SELECT car_models.MoId AS 'Ідентифікатор моделі', car_models.MoName AS 'Назва  моделі', car_names.NName AS 'Назва відповідної марки' FROM car_models JOIN car_names ON car_models.NKod = car_names.NKod;", dB.GetConnection());
+            SqlDataAdapter data_ = new SqlDataAdapter("SELECT car_models.MoId AS 'Ідентифікатор моделі', car_models.MoName AS 'Назва  моделі', car_names.NName AS 'Назва відповідної марки' FROM car_models JOIN car_names ON car_models.NKod = car_names.NKod", dB.GetConnection());
             DataSet db = new DataSet();
             data_.Fill(db);
             dataGridView1.DataSource = db.Tables[0];
@@ -47,9 +49,9 @@ namespace Pid_Kursach
 
                 textBox1.Text = row.Cells[0].Value.ToString();
                 textBox2.Text = row.Cells[1].Value.ToString();
-                string selectedValue = row.Cells[2].Value.ToString();
-                carnamesBindingSource.Position = carnamesBindingSource.Find("NName", selectedValue);
-                comboBox1.SelectedItem = selectedValue;
+                string selectedValue1 = row.Cells[2].Value.ToString();
+                carnamesBindingSource.Position = carnamesBindingSource.Find("NName", selectedValue1);
+                comboBox1.SelectedItem = selectedValue1;
             }
         }
 
@@ -78,8 +80,6 @@ namespace Pid_Kursach
                 }
             dB.CloseConnection();
 
-
-
         }
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace Pid_Kursach
         {
             this.car_namesTableAdapter.Fill(this.myFirstCarDataSet.car_names);
             dB.OpenConnection();
-            SqlDataAdapter data_ = new SqlDataAdapter("SELECT car_models.MoId AS 'Ідентифікатор моделі', car_models.MoName AS 'Назва  моделі', car_names.NName AS 'Назва відповідної марки' FROM car_models JOIN car_names ON car_models.NKod = car_names.NKod;", dB.GetConnection());
+            SqlDataAdapter data_ = new SqlDataAdapter("SELECT car_models.MoId AS 'Ідентифікатор моделі', car_models.MoName AS 'Назва  моделі', car_names.NName AS 'Назва відповідної марки' FROM car_models JOIN car_names ON car_models.NKod = car_names.NKod", dB.GetConnection());
             DataSet db = new DataSet();
             data_.Fill(db);
             dataGridView1.DataSource = db.Tables[0];
@@ -118,5 +118,6 @@ namespace Pid_Kursach
             }
             dB.CloseConnection();
         }
+
     }
 }

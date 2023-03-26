@@ -38,9 +38,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.carnamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.myFirstCarDataSet = new Pid_Kursach.MyFirstCarDataSet();
-            this.carnamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.car_namesTableAdapter = new Pid_Kursach.MyFirstCarDataSetTableAdapters.car_namesTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,10 +48,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.cartypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.car_typesTableAdapter = new Pid_Kursach.MyFirstCarDataSetTableAdapters.car_typesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carnamesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myFirstCarDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carnamesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartypesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -143,6 +146,11 @@
             this.comboBox1.ValueMember = "NKod";
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
+            // carnamesBindingSource
+            // 
+            this.carnamesBindingSource.DataMember = "car_names";
+            this.carnamesBindingSource.DataSource = this.bindingSource1;
+            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = this.myFirstCarDataSet;
@@ -152,11 +160,6 @@
             // 
             this.myFirstCarDataSet.DataSetName = "MyFirstCarDataSet";
             this.myFirstCarDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carnamesBindingSource
-            // 
-            this.carnamesBindingSource.DataMember = "car_names";
-            this.carnamesBindingSource.DataSource = this.bindingSource1;
             // 
             // car_namesTableAdapter
             // 
@@ -198,7 +201,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(83, 434);
+            this.button4.Location = new System.Drawing.Point(62, 451);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(151, 56);
             this.button4.TabIndex = 12;
@@ -216,7 +219,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(276, 434);
+            this.button5.Location = new System.Drawing.Point(255, 451);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(214, 56);
             this.button5.TabIndex = 14;
@@ -224,11 +227,20 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // cartypesBindingSource
+            // 
+            this.cartypesBindingSource.DataMember = "car_types";
+            this.cartypesBindingSource.DataSource = this.myFirstCarDataSet;
+            // 
+            // car_typesTableAdapter
+            // 
+            this.car_typesTableAdapter.ClearBeforeFill = true;
+            // 
             // CarModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 518);
+            this.ClientSize = new System.Drawing.Size(800, 571);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button4);
@@ -248,9 +260,10 @@
             this.Text = "Моделі авто";
             this.Load += new System.EventHandler(this.CarModels_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carnamesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myFirstCarDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carnamesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartypesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +290,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.BindingSource cartypesBindingSource;
+        private MyFirstCarDataSetTableAdapters.car_typesTableAdapter car_typesTableAdapter;
     }
 }

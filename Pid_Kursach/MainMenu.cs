@@ -74,6 +74,12 @@ namespace Pid_Kursach
             Users user = new Users();
             user.Show();
         }
+
+        private void наявніАвтоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CarsInStock cars = new CarsInStock();
+            cars.Show();
+        }
     }
     }
 

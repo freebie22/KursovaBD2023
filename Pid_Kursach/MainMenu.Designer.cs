@@ -96,6 +96,7 @@
             this.наявніАвтоToolStripMenuItem.Name = "наявніАвтоToolStripMenuItem";
             this.наявніАвтоToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.наявніАвтоToolStripMenuItem.Text = "Наявні авто";
+            this.наявніАвтоToolStripMenuItem.Click += new System.EventHandler(this.наявніАвтоToolStripMenuItem_Click);
             // 
             // продажToolStripMenuItem
             // 

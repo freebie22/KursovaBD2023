@@ -64,6 +64,12 @@
     <Compile Include="CarNames.Designer.cs">
       <DependentUpon>CarNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarsInStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarsInStock.Designer.cs">
+      <DependentUpon>CarsInStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarNames.resx">
       <DependentUpon>CarNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarsInStock.resx">
+      <DependentUpon>CarsInStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarTypes.resx">
       <DependentUpon>CarTypes.cs</DependentUpon>
