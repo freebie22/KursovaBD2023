@@ -24,7 +24,7 @@ namespace Pid_Kursach
         private void Clients_Load(object sender, EventArgs e)
         {
             dB.OpenConnection();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select CKod AS 'Ідентифікатор клієнта', CPrizv AS 'Прізвище клієнта', CIm AS 'Ім я клієнта', CBat AS 'По-батькові клієнта', CNomTel AS 'Номер телефону', CPasport AS 'Серія паспорту', IsProcessed AS 'Чи опрацьовано?' FROM clients", dB.GetConnection());
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select CKod AS 'Ідентифікатор клієнта', CPrizv AS 'Прізвище клієнта', CIm AS 'Ім я клієнта', CBat AS 'По-батькові клієнта', CNomTel AS 'Номер телефону', CPasport AS 'Серія паспорту', IsProcessed AS 'Чи опрацьовано?' FROM clients Order By IsProcessed", dB.GetConnection());
             DataSet data = new DataSet();
             dataAdapter.Fill(data);
             dataGridView1.DataSource = data.Tables[0];
@@ -77,7 +77,7 @@ namespace Pid_Kursach
         private void button5_Click(object sender, EventArgs e)
         {
             dB.OpenConnection();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select CKod AS 'Ідентифікатор клієнта', CPrizv AS 'Прізвище клієнта', CIm AS 'Ім я клієнта', CBat AS 'По-батькові клієнта', CNomTel AS 'Номер телефону', CPasport AS 'Серія паспорту', IsProcessed AS 'Чи опрацьовано?' FROM clients", dB.GetConnection());
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select CKod AS 'Ідентифікатор клієнта', CPrizv AS 'Прізвище клієнта', CIm AS 'Ім я клієнта', CBat AS 'По-батькові клієнта', CNomTel AS 'Номер телефону', CPasport AS 'Серія паспорту', IsProcessed AS 'Чи опрацьовано?' FROM clients ORDER BY IsProcessed", dB.GetConnection());
             DataSet data = new DataSet();
             dataAdapter.Fill(data);
             dataGridView1.DataSource = data.Tables[0];

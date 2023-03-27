@@ -65,7 +65,7 @@ namespace Pid_Kursach
                 "FROM cars_in_stock " +
                 "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
                 "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
-                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType;", dB.GetConnection());
+                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType Order By cars_in_stock.Car_Is_Avaliable;", dB.GetConnection());
             DataSet ds = new DataSet();
             data.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -140,6 +140,11 @@ namespace Pid_Kursach
             textBox13.Text = "";
             textBox14.Text = "";
             textBox15.Text = "";
+            textBox16.Text = "";
+            textBox17.Text = "";
+            textBox18.Text = "";
+            textBox19.Text = "";
+            textBox20.Text = "";
             comboBox1.SelectedItem = null;
             comboBox2.SelectedItem = null;
             comboBox3.SelectedItem = null;
@@ -281,7 +286,7 @@ namespace Pid_Kursach
                 $" Car_Date_Prihod," +
                 $" Car_Is_Avaliable," +
                 $" Car_Is_Sold) " +
-                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox20.Text}', '{textBox18.Text}', '{textBox19.Text}', '{textBox2.Text}', '{textBox8.Text}', '{textBox3.Text}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}', '{bool.Parse(textBox15.Text)}')", dB.GetConnection());
+                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox20.Text}', '{textBox18.Text}', '{textBox19.Text}', '{textBox2.Text}', '{textBox8.Text}', '{double.Parse(textBox3.Text)}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}', '{bool.Parse(textBox15.Text)}')", dB.GetConnection());
 
             if (command.ExecuteNonQuery() == 1)
             {
@@ -373,7 +378,7 @@ namespace Pid_Kursach
                 "FROM cars_in_stock " +
                 "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
                 "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
-                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType;", dB.GetConnection());
+                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType Order By cars_in_stock.Car_Is_Avaliable;", dB.GetConnection());
             DataSet ds = new DataSet();
             data.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
