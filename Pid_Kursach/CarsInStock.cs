@@ -48,6 +48,9 @@ namespace Pid_Kursach
                 " car_names.NName AS 'Марка'," +
                 " car_models.MoName AS 'Модель'," +
                 " car_types.TNazvaType AS 'Тип кузову'," +
+                " cars_in_stock.Car_Color AS 'Колір'," +
+                " cars_in_stock.Car_Nomer AS 'Номер'," +
+                " cars_in_stock.Car_Vin AS 'VIN'," +
                 " cars_in_stock.Car_Price AS 'Ціна, $'," +
                 " cars_in_stock.Car_Year AS 'Рік випуску'," +
                 " cars_in_stock.Car_Engine AS 'Об єм двигуна, л'," +
@@ -177,9 +180,9 @@ namespace Pid_Kursach
                 cartypesBindingSource.Position = cartypesBindingSource.Find("TNazvaType", selectedValue3);
                 comboBox3.SelectedItem = selectedValue3;
 
-                textBox2.Text = row.Cells[4].Value.ToString();
+                textBox2.Text = row.Cells[7].Value.ToString();
 
-                string selectedValue4 = row.Cells[5].Value.ToString();
+                string selectedValue4 = row.Cells[8].Value.ToString();
 
                 int index4 = comboBox4.Items.IndexOf(selectedValue4);
                 if (index4 >= 0)
@@ -187,9 +190,9 @@ namespace Pid_Kursach
                     comboBox4.SelectedIndex = index4;
                 }
 
-                textBox3.Text = row.Cells[6].Value.ToString();
+                textBox3.Text = row.Cells[9].Value.ToString();
 
-                string selectedValue5 = row.Cells[7].Value.ToString();
+                string selectedValue5 = row.Cells[10].Value.ToString();
 
                 int index5 = comboBox5.Items.IndexOf(selectedValue5);
                 if(index5 >= 0)
@@ -197,7 +200,7 @@ namespace Pid_Kursach
                     comboBox5.SelectedIndex = index5;
                 }
 
-                string selectedValue6 = row.Cells[8].Value.ToString();
+                string selectedValue6 = row.Cells[11].Value.ToString();
 
                 int index6 = comboBox6.Items.IndexOf(selectedValue6);
                 if (index6 >= 0)
@@ -205,7 +208,7 @@ namespace Pid_Kursach
                     comboBox6.SelectedIndex = index6;
                 }
 
-                string selectedValue7 = row.Cells[9].Value.ToString();
+                string selectedValue7 = row.Cells[12].Value.ToString();
 
                 int index7 = comboBox7.Items.IndexOf(selectedValue7);
                 if (index7 >= 0)
@@ -213,7 +216,7 @@ namespace Pid_Kursach
                     comboBox7.SelectedIndex = index7;
                 }
 
-                string selectedValue8 = row.Cells[10].Value.ToString();
+                string selectedValue8 = row.Cells[13].Value.ToString();
 
                 int index8 = comboBox8.Items.IndexOf(selectedValue8);
                 if (index8 >= 0)
@@ -221,16 +224,16 @@ namespace Pid_Kursach
                     comboBox8.SelectedIndex = index8;
                 }
 
-                textBox4.Text = row.Cells[11].Value.ToString();
+                textBox4.Text = row.Cells[14].Value.ToString();
 
-                string selectedValue9 = row.Cells[12].Value.ToString();
+                string selectedValue9 = row.Cells[15].Value.ToString();
                 DateTime selectedDate;
                 if (DateTime.TryParse(selectedValue9, out selectedDate))
                 {
                     dateTimePicker1.Value = selectedDate;
                 }
 
-                if ((bool)row.Cells[13].Value)
+                if ((bool)row.Cells[16].Value)
                 {
                     comboBox9.SelectedItem = "В наявності";
                 }
@@ -240,7 +243,7 @@ namespace Pid_Kursach
                     comboBox9.SelectedItem = "Продане";
                 }
 
-                if ((bool)row.Cells[14].Value)
+                if ((bool)row.Cells[17].Value)
                 {
                     comboBox10.SelectedItem = "Так";
                 }
@@ -249,6 +252,11 @@ namespace Pid_Kursach
                 {
                     comboBox10.SelectedItem = "Ні";
                 }
+
+                textBox18.Text = row.Cells[5].Value.ToString();
+                textBox19.Text = row.Cells[6].Value.ToString();
+                textBox20.Text = row.Cells[4].Value.ToString();
+
             }
         }
 
@@ -259,6 +267,9 @@ namespace Pid_Kursach
             SqlCommand command= new SqlCommand($"Insert into cars_in_stock (Car_Name," +
                 $" Car_Model," +
                 $" Car_Type," +
+                $" Car_Color," +
+                $" Car_Nomer," +
+                $" Car_Vin," +
                 $" Car_Price," +
                 $" Car_Year," +
                 $" Car_Engine," +
@@ -270,7 +281,7 @@ namespace Pid_Kursach
                 $" Car_Date_Prihod," +
                 $" Car_Is_Avaliable," +
                 $" Car_Is_Sold) " +
-                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox2.Text}', '{textBox8.Text}', '{textBox3.Text}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}', '{bool.Parse(textBox15.Text)}')", dB.GetConnection());
+                $"Values ('{int.Parse(textBox5.Text)}', '{int.Parse(textBox6.Text)}', '{int.Parse(textBox7.Text)}', '{textBox20.Text}', '{textBox18.Text}', '{textBox19.Text}', '{textBox2.Text}', '{textBox8.Text}', '{textBox3.Text}', '{textBox9.Text}', '{textBox10.Text}', '{textBox11.Text}', '{textBox12.Text}', '{textBox4.Text}', '{date:yyyy-MM-dd}', '{bool.Parse(textBox13.Text)}', '{bool.Parse(textBox15.Text)}')", dB.GetConnection());
 
             if (command.ExecuteNonQuery() == 1)
             {
@@ -345,6 +356,9 @@ namespace Pid_Kursach
                 " car_names.NName AS 'Марка'," +
                 " car_models.MoName AS 'Модель'," +
                 " car_types.TNazvaType AS 'Тип кузову'," +
+                " cars_in_stock.Car_Color AS 'Колір'," +
+                " cars_in_stock.Car_Nomer AS 'Номер'," +
+                " cars_in_stock.Car_Vin AS 'VIN'," +
                 " cars_in_stock.Car_Price AS 'Ціна, $'," +
                 " cars_in_stock.Car_Year AS 'Рік випуску'," +
                 " cars_in_stock.Car_Engine AS 'Об єм двигуна, л'," +
@@ -354,7 +368,7 @@ namespace Pid_Kursach
                 " cars_in_stock.Car_Drive AS 'Привід'," +
                 " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
                 " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
-                " cars_in_stock.Car_Is_Avaliable AS 'Наявність', " +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність'," +
                 " cars_in_stock.Car_Is_Sold AS 'Чи продана?'" +
                 "FROM cars_in_stock " +
                 "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
@@ -382,7 +396,7 @@ namespace Pid_Kursach
         {
             dB.OpenConnection();
             DateTime date = DateTime.ParseExact(textBox14.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            SqlCommand command = new SqlCommand($"UPDATE cars_in_stock SET Car_Name = '{int.Parse(textBox5.Text)}', Car_Model = '{int.Parse(textBox6.Text)}', Car_Type = '{int.Parse(textBox7.Text)}', Car_Price = '{textBox2.Text}', Car_Year = '{textBox8.Text}', Car_Engine = '{textBox3.Text}', Car_GearBox = '{textBox9.Text}', Car_Fuel = '{textBox10.Text}', Car_Condition = '{textBox11.Text}', Car_Drive = '{textBox12.Text}', Car_Mileage = '{textBox4.Text}', Car_Date_Prihod = '{date:yyyy-MM-dd}', Car_Is_Avaliable = '{bool.Parse(textBox13.Text)}', Car_Is_Sold = '{bool.Parse(textBox15.Text)}',  WHERE Car_Id = {textBox1.Text}", dB.GetConnection());
+            SqlCommand command = new SqlCommand($"UPDATE cars_in_stock SET Car_Name = '{int.Parse(textBox5.Text)}', Car_Model = '{int.Parse(textBox6.Text)}', Car_Type = '{int.Parse(textBox7.Text)}', Car_Color = '{textBox20.Text}', Car_Nomer = '{textBox18.Text}', Car_Vin = '{textBox19.Text}', Car_Price = '{textBox2.Text}', Car_Year = '{textBox8.Text}', Car_Engine = '{textBox3.Text}', Car_GearBox = '{textBox9.Text}', Car_Fuel = '{textBox10.Text}', Car_Condition = '{textBox11.Text}', Car_Drive = '{textBox12.Text}', Car_Mileage = '{textBox4.Text}', Car_Date_Prihod = '{date:yyyy-MM-dd}', Car_Is_Avaliable = '{bool.Parse(textBox13.Text)}', Car_Is_Sold = '{bool.Parse(textBox15.Text)}',  WHERE Car_Id = {textBox1.Text}", dB.GetConnection());
 
             if (command.ExecuteNonQuery() == 1)
             {
@@ -467,5 +481,7 @@ namespace Pid_Kursach
         {
             NameSearch(dataGridView1);
         }
+
+       
     }
 }
