@@ -140,8 +140,6 @@ namespace Pid_Kursach
             textBox13.Text = "";
             textBox14.Text = "";
             textBox15.Text = "";
-            textBox16.Text = "";
-            textBox17.Text = "";
             textBox18.Text = "";
             textBox19.Text = "";
             textBox20.Text = "";
@@ -156,6 +154,34 @@ namespace Pid_Kursach
             comboBox9.SelectedItem = null;
             comboBox10.SelectedItem = null;
             dateTimePicker1.Value = DateTime.Now;
+            dB.OpenConnection();
+            SqlDataAdapter data = new SqlDataAdapter(
+                "SELECT cars_in_stock.Car_Id AS 'ID'," +
+                " car_names.NName AS 'Марка'," +
+                " car_models.MoName AS 'Модель'," +
+                " car_types.TNazvaType AS 'Тип кузову'," +
+                " cars_in_stock.Car_Color AS 'Колір'," +
+                " cars_in_stock.Car_Nomer AS 'Номер'," +
+                " cars_in_stock.Car_Vin AS 'VIN'," +
+                " cars_in_stock.Car_Price AS 'Ціна, $'," +
+                " cars_in_stock.Car_Year AS 'Рік випуску'," +
+                " cars_in_stock.Car_Engine AS 'Об єм двигуна, л'," +
+                " cars_in_stock.Car_GearBox AS 'Коробка передач'," +
+                " cars_in_stock.Car_Fuel AS 'Тип пального'," +
+                " cars_in_stock.Car_Condition AS 'Стан автомобіля'," +
+                " cars_in_stock.Car_Drive AS 'Привід'," +
+                " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
+                " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність'," +
+                " cars_in_stock.Car_Is_Sold AS 'Чи продана?'" +
+                "FROM cars_in_stock " +
+                "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
+                "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
+                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType Order By cars_in_stock.Car_Is_Avaliable;", dB.GetConnection());
+            DataSet ds = new DataSet();
+            data.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            dB.CloseConnection();
 
         }
 
@@ -454,7 +480,7 @@ namespace Pid_Kursach
 
                 // Підготовка параметрів для запиту
                 SqlCommand command = new SqlCommand(query, dB.GetConnection());
-                command.Parameters.AddWithValue("@searchTerm", textBox16.Text);
+           
 
             dgw.Rows.Clear();
 
@@ -487,6 +513,47 @@ namespace Pid_Kursach
             NameSearch(dataGridView1);
         }
 
-       
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dB.OpenConnection();
+            if (dateTimePicker1.Value == null)
+            {
+                MessageBox.Show("Please select a date.");
+                return;
+            }
+
+            dataGridView1.DataSource = null;
+
+            dataGridView1.Rows.Clear();
+
+            string query = "SELECT cars_in_stock.Car_Id AS 'ID'," +
+                " car_names.NName AS 'Марка'," +
+                " car_models.MoName AS 'Модель'," +
+                " car_types.TNazvaType AS 'Тип кузову'," +
+                " cars_in_stock.Car_Price AS 'Ціна, $'," +
+                " cars_in_stock.Car_Year AS 'Рік випуску'," +
+                " cars_in_stock.Car_Engine AS 'Об єм двигуна, л'," +
+                " cars_in_stock.Car_GearBox AS 'Коробка передач'," +
+                " cars_in_stock.Car_Fuel AS 'Тип пального'," +
+                " cars_in_stock.Car_Condition AS 'Стан автомобіля'," +
+                " cars_in_stock.Car_Drive AS 'Привід'," +
+                " cars_in_stock.Car_Mileage AS 'Пробіг, тис. км'," +
+                " cars_in_stock.Car_Date_Prihod AS 'Дата надходження'," +
+                " cars_in_stock.Car_Is_Avaliable AS 'Наявність', " +
+                " cars_in_stock.Car_Is_Sold AS 'Чи продана?'" +
+                "FROM cars_in_stock " +
+                "JOIN car_names ON cars_in_stock.Car_Name = car_names.NKod " +
+                "JOIN car_models ON cars_in_stock.Car_Model = car_models.MoId " +
+                "JOIN car_types ON cars_in_stock.Car_Type = car_types.TKodType WHERE Car_Date_Prihod = @date";
+
+            SqlCommand cmd = new SqlCommand(query, dB.GetConnection());
+            cmd.Parameters.AddWithValue("@date", dateTimePicker2.Value.Date);
+
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            dataGridView1.DataSource = dt;
+            dB.CloseConnection();
+        }
     }
 }

@@ -111,5 +111,36 @@ namespace Pid_Kursach.Images
 
             dB.CloseConnection();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dB.OpenConnection();
+            if (dateTimePicker1.Value == null)
+            {
+                MessageBox.Show("Please select a date.");
+                return;
+            }
+
+            // Очистити DataGridView перед запитом
+            var dataSource = dataGridView1.DataSource;
+
+            // Встановлення джерела даних на null
+            dataGridView1.DataSource = null;
+
+            // Очистити рядки
+            dataGridView1.Rows.Clear();
+
+
+            string query = "Select sales.Sale_id AS 'Ідентифікатор документу', sales.Car_Id AS 'Код авто', sales.CKod AS 'Код клієнта', sales.MKod AS 'Код менеджера', sales.Sale_Price AS 'Фінальна ціна', sales.Sale_Date AS 'Дата оформлення угоди' FROM sales WHERE Sale_Date = @date";
+
+            SqlCommand cmd = new SqlCommand(query, dB.GetConnection());
+            cmd.Parameters.AddWithValue("@date", dateTimePicker1.Value.Date);
+
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            dataGridView1.DataSource = dt;
+            dB.CloseConnection();
+        }
     }
 }
