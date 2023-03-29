@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Pid_Kursach.Images
 {
@@ -30,11 +29,18 @@ namespace Pid_Kursach.Images
             richTextBox1.ReadOnly = true;
             DateTime date = DateTime.Now;
             this.textBox6.Text = date.ToString("yyyy-MM-dd");
+            label9.Text = "";
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            richTextBox1.Text = "";
+            label9.Text = "";
         }
 
         private void Sales_Load(object sender, EventArgs e)
@@ -69,13 +75,11 @@ namespace Pid_Kursach.Images
 
                 DataSet dataSet = new DataSet();
 
-                // Заповнюємо DataSet з використанням SqlDataAdapter
                 data.Fill(dataSet);
 
-                // Отримуємо перший (і, очевидно, єдиний) DataTable з DataSet
+
                 DataTable dataTable = dataSet.Tables[0];
 
-                // Створюємо новий рядок у RichTextBox для кожного стовпця таблиці
                 StringBuilder stringBuilder = new StringBuilder();
                 foreach (DataColumn column in dataTable.Columns)
                 {
@@ -93,7 +97,6 @@ namespace Pid_Kursach.Images
 
             }
 
-            // Створюємо новий екземпляр SqlDataAdapter і DataSet
           
         }
 
@@ -140,6 +143,17 @@ namespace Pid_Kursach.Images
             DataTable dt = new DataTable();
             data.Fill(dt);
             dataGridView1.DataSource = dt;
+            dB.CloseConnection();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            dB.OpenConnection();
+            SqlDataAdapter data = new SqlDataAdapter("Select sales.Sale_id AS 'Ідентифікатор документу', sales.Car_Id AS 'Код авто', sales.CKod AS 'Код клієнта', sales.MKod AS 'Код менеджера', sales.Sale_Price AS 'Фінальна ціна', sales.Sale_Date AS 'Дата оформлення угоди' FROM sales", dB.GetConnection());
+            DataSet ds = new DataSet();
+            data.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
             dB.CloseConnection();
         }
     }

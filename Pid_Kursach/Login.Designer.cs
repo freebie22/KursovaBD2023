@@ -34,13 +34,17 @@
             this.Perehod = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(172, 149);
+            this.textBox1.Location = new System.Drawing.Point(217, 149);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(214, 37);
             this.textBox1.TabIndex = 3;
@@ -49,7 +53,7 @@
             // password
             // 
             this.password.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.password.Location = new System.Drawing.Point(172, 211);
+            this.password.Location = new System.Drawing.Point(217, 207);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(214, 31);
             this.password.TabIndex = 4;
@@ -66,7 +70,7 @@
             this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLogin.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.ButtonLogin.Location = new System.Drawing.Point(192, 280);
+            this.ButtonLogin.Location = new System.Drawing.Point(186, 281);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(170, 51);
             this.ButtonLogin.TabIndex = 5;
@@ -80,7 +84,7 @@
             this.Perehod.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Perehod.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Perehod.ForeColor = System.Drawing.SystemColors.Control;
-            this.Perehod.Location = new System.Drawing.Point(199, 354);
+            this.Perehod.Location = new System.Drawing.Point(192, 345);
             this.Perehod.Name = "Perehod";
             this.Perehod.Size = new System.Drawing.Size(154, 33);
             this.Perehod.TabIndex = 6;
@@ -90,6 +94,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Perehod);
             this.panel1.Controls.Add(this.ButtonLogin);
@@ -115,6 +122,40 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "MyFirstCar";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Montserrat", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(73, 144);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 48);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Логін";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(54, 207);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(157, 48);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Пароль";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.pictureBox1.Image = global::Pid_Kursach.Properties.Resources._192_1925162_login_icon_png_trans;
+            this.pictureBox1.Location = new System.Drawing.Point(434, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 105);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,10 +164,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "Login";
             this.ShowIcon = false;
-            this.Text = "Login";
+            this.Text = "Вхід в програму";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -139,5 +181,8 @@
         private System.Windows.Forms.Label Perehod;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

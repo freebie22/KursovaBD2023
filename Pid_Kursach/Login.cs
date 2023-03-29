@@ -18,6 +18,7 @@ namespace Pid_Kursach
             InitializeComponent();
             this.password.AutoSize = false;
             this.password.Size = new Size(this.password.Size.Width, 51);
+            pictureBox1.BackColor = Color.Transparent;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace Pid_Kursach
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             String loginUser = textBox1.Text;
-            String passUser = password.Text;
+            String passUser = Md5.Get_hash(password.Text);
 
 
 

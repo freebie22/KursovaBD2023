@@ -35,6 +35,7 @@ namespace Pid_Kursach
             продажToolStripMenuItem.Enabled = _user.IsAdmin;
             менеджериToolStripMenuItem.Enabled = _user.IsAdmin;
             користувачіToolStripMenuItem.Enabled = _user.IsAdmin;
+            довідникиToolStripMenuItem.Enabled = _user.IsAdmin;
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace Pid_Kursach
             продажToolStripMenuItem.Enabled = false;
             менеджериToolStripMenuItem.Enabled = false;
             користувачіToolStripMenuItem.Enabled = false;
+            довідникиToolStripMenuItem.Enabled = false;
             IsAdmin();
         }
 
@@ -86,6 +88,11 @@ namespace Pid_Kursach
         {
             Sales sales = new Sales();
             sales.Show();
+        }
+
+        private void довідникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

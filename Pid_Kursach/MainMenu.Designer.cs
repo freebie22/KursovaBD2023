@@ -42,7 +42,9 @@
             this.користувачіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.довідкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -55,7 +57,7 @@
             this.довідкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 34);
+            this.menuStrip1.Size = new System.Drawing.Size(631, 34);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,8 +69,9 @@
             this.типиКузовівToolStripMenuItem,
             this.наявніАвтоToolStripMenuItem});
             this.довідникиToolStripMenuItem.Name = "довідникиToolStripMenuItem";
-            this.довідникиToolStripMenuItem.Size = new System.Drawing.Size(293, 30);
-            this.довідникиToolStripMenuItem.Text = "Довідники по автомобілям";
+            this.довідникиToolStripMenuItem.Size = new System.Drawing.Size(235, 30);
+            this.довідникиToolStripMenuItem.Text = "Керування записами";
+            this.довідникиToolStripMenuItem.Click += new System.EventHandler(this.довідникиToolStripMenuItem_Click);
             // 
             // маркиАвтоToolStripMenuItem
             // 
@@ -155,25 +158,36 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(0, 424);
+            this.label1.Location = new System.Drawing.Point(0, 481);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 26);
             this.label1.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Pid_Kursach.Properties.Resources.MyFirstCar__2_;
+            this.pictureBox2.Location = new System.Drawing.Point(98, 91);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(439, 339);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(631, 507);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
-            this.Text = "MainMenu";
+            this.Text = "Головне меню програми";
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem користувачіToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem довідкаToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

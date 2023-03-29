@@ -63,9 +63,39 @@ namespace Pid_Kursach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _192_1925162_login_icon_png_trans {
+            get {
+                object obj = ResourceManager.GetObject("192-1925162_login-icon-png-trans", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _lock {
             get {
                 object obj = ResourceManager.GetObject("lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Blue_and_Orange_1__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Blue+and+Orange_1 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Blue_and_Orange_1__3_ {
+            get {
+                object obj = ResourceManager.GetObject("Blue+and+Orange_1 (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +123,49 @@ namespace Pid_Kursach.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MyFirstCar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("MyFirstCar (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MyFirstCar__2_ {
+            get {
+                object obj = ResourceManager.GetObject("MyFirstCar (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pererabotka {
             get {
                 object obj = ResourceManager.GetObject("pererabotka", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_computer_icons_user_login_icon_miscellaneous_monochrome_black {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-computer-icons-user-login-icon-miscellaneous-monochrome-black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_login_computer_i {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-login-computer-i", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

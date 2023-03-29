@@ -15,6 +15,7 @@ namespace Pid_Kursach
     public partial class CarsInStock : Form
     {
         DataBase dB = new DataBase();
+        private readonly checkUser _user;
         int selectedRow;
         public CarsInStock()
         {
@@ -71,7 +72,6 @@ namespace Pid_Kursach
             dataGridView1.DataSource = ds.Tables[0];
             dB.CloseConnection();
             FillBrandComboBox();
-
         }
 
         private void FillBrandComboBox()
@@ -103,8 +103,7 @@ namespace Pid_Kursach
             dB.CloseConnection();
         }
 
-        
-
+     
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

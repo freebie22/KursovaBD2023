@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Perehid = new System.Windows.Forms.Label();
             this.ButtonLogin = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
             this.login = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,18 @@
             this.panel1.Size = new System.Drawing.Size(584, 450);
             this.panel1.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Montserrat", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(200, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 48);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "MyFirstCar";
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -61,6 +73,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(214, 33);
             this.textBox1.TabIndex = 10;
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // Perehid
             // 
@@ -113,18 +127,6 @@
             this.login.TabIndex = 3;
             this.login.Enter += new System.EventHandler(this.login_Enter);
             this.login.Leave += new System.EventHandler(this.login_Leave);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(200, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 48);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "MyFirstCar";
             // 
             // Register
             // 
