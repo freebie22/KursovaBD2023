@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Pid_Kursach
 {
@@ -20,7 +21,6 @@ namespace Pid_Kursach
         public Users()
         {
             InitializeComponent();
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -29,7 +29,6 @@ namespace Pid_Kursach
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
-            comboBox1.SelectedItem = null;
 
         }
 
@@ -54,16 +53,12 @@ namespace Pid_Kursach
                 textBox2.Text = row.Cells[1].Value.ToString();
                 textBox3.Text = row.Cells[2].Value.ToString();
                 textBox4.Text = row.Cells[3].Value.ToString();
+                textBox5.Text = row.Cells[4].Value.ToString();
 
-                if((bool)row.Cells[4].Value)
-                {
-                    comboBox1.SelectedItem = "Адміністратор";
-                }
-
-                else
-                {
-                    comboBox1.SelectedItem = "Користувач";
-                }
+                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells["Чи є адміном?"];
+                bool isChecked = (bool)cell.Value;
+                cell.Value = !isChecked;
+                checkBox2.Checked = !isChecked;
 
             }
 
@@ -71,12 +66,41 @@ namespace Pid_Kursach
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dB.OpenConnection();
+            string addQuery;
 
+            addQuery = $"insert into users (login, pass, confirm_pass, Kod) values ('{textBox2.Text}', '{textBox3.Text}', '{textBox4.Text}','{checkBox2.Checked}')";
+
+            var command = new SqlCommand(addQuery, dB.GetConnection());
+
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Користувача додано!", "Успіх!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Запис не створено!", "Увага!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            dB.CloseConnection();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            dB.OpenConnection();
+            SqlCommand sql;
 
+            sql = new SqlCommand($"UPDATE Users SET users.login = '{textBox2.Text}', users.pass = '{textBox3.Text}', users.confirm_pass = '{textBox4.Text}', users.Kod = '{checkBox2.Checked}'  WHERE users.Id = '{textBox1.Text}'", dB.GetConnection());
+
+            if (sql.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Запис успішно оновлено!", "Успіх!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Запис не оновлено!", "Увага!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            dB.CloseConnection();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -92,6 +116,12 @@ namespace Pid_Kursach
             data.Fill(dt);
             dataGridView1.DataSource = dt.Tables[0];
             dB.CloseConnection();
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }
